@@ -3,13 +3,13 @@ import axios from 'axios'
 import './assets/style.css'
 
 function App() {
-  const [characters, setCharacters] = useState([])
+  const [char, setChar] = useState([])
 
   useEffect(() =>{
     const fetchData = async () => {
       try{
         const {data} = await axios.get(`https://rickandmortyapi.com/api/character`)
-        setCharacters(data.results)
+        setChar(data.results)
       }catch(error){
         console.error(error);
       }
@@ -20,10 +20,10 @@ function App() {
   return (
     <div className="App">
       <div className="results">
-        {characters.map(character => (
+        {char.map(char => (
           <div>
-            <img src={character.image} alt={character.name}/>
-            {character.name}
+            <img src={char.image} alt={char.name}/>
+            {char.name}
           </div>
         ))}
       </div>

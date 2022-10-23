@@ -1,3 +1,7 @@
+.body{
+    background-color: cyan;
+}
+
 .results {
     display: grid;
     gap: 20px;
@@ -6,5 +10,4 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
-    background-color: cyan;
   }
