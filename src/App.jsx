@@ -1,34 +1,28 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import './assets/style.css'
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import CharacterDetail from './pages/CharacterDetail';
+import CharacterList from './pages/CharacterList';
+import Home from './pages/Home';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/characters',
+    element: <CharacterList />,
+  },
+  {
+    path: '/characters/:id',
+    element: <CharacterDetail />,
+  },
+]);
 
 function App() {
-  const [char, setChar] = useState([])
-
-  useEffect(() =>{
-    const fetchData = async () => {
-      try{
-        const {data} = await axios.get(`https://rickandmortyapi.com/api/character`)
-        setChar(data.results)
-      }catch(error){
-        console.error(error);
-      }
-    }
-    fetchData()
-  },[])
-
   return (
-    <div className="App">
-      <div className="results">
-        {char.map(char => (
-          <div>
-            <img src={char.image} alt={char.name}/>
-            {char.name}
-          </div>
-        ))}
-      </div>
-    </div>
-  )
+    <RouterProvider router={router} />
+  );
 }
 
-export default App
+export default App;
