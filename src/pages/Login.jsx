@@ -19,27 +19,23 @@ function Login() {
       // eslint-disable-next-line no-alert
       window.alert(err.response.data.message);
     }
-    // if (e.target.email.value === 'admin@mail.com' && e.target.password.value === '1234') {
-    //   window.localStorage.setItem('token', 'some token');
-    //   window.alert('Login success');
-    //   navigate('/');
-    // } else {
-    //   window.alert('Wrong email or password');
-    // }
   };
   return (
     <>
       <form onSubmit={submitAction}>
+        Email
         <input type="email" name="email" />
         <br />
+        Password
         <input type="password" name="password" />
         <br />
         <button type="submit">Login</button>
       </form>
       <div>
         <Link to="/register">
-          <button>Register</button>
+          <button type="submit">Register</button>
         </Link>
+        <Link className="nav-for" to="/forgot-password">forgot password</Link>
       </div>
     </>
   );

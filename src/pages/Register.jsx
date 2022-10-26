@@ -13,23 +13,19 @@ function Register() {
       };
       const encoded = new URLSearchParams(form);
       const { data } = await http().post('/auth/register', encoded.toString());
+      window.localStorage.setItem('token', data.results.token);
       navigate('/');
     } catch (err) {
       // eslint-disable-next-line no-alert
       window.alert(err.response.data.message);
     }
-    // if (e.target.email.value === 'admin@mail.com' && e.target.password.value === '1234') {
-    //   window.localStorage.setItem('token', 'some token');
-    //   window.alert('Login success');
-    //   navigate('/');
-    // } else {
-    //   window.alert('Wrong email or password');
-    // }
   };
   return (
     <form onSubmit={submitAction}>
+      Email
       <input type="email" name="email" />
       <br />
+      Password
       <input type="password" name="password" />
       <br />
       <button type="submit">Register</button>
