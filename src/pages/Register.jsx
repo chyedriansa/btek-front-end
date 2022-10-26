@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import http from '../helpers/http';
 
-function Login() {
+function Register() {
   const navigate = useNavigate();
   const submitAction = async (e) => {
     try {
@@ -12,8 +12,7 @@ function Login() {
         password: e.target.password.value,
       };
       const encoded = new URLSearchParams(form);
-      const { data } = await http().post('/auth/login', encoded.toString());
-      window.localStorage.setItem('token', data.results.token);
+      const { data } = await http().post('/auth/register', encoded.toString());
       navigate('/');
     } catch (err) {
       // eslint-disable-next-line no-alert
@@ -28,21 +27,14 @@ function Login() {
     // }
   };
   return (
-    <>
-      <form onSubmit={submitAction}>
-        <input type="email" name="email" />
-        <br />
-        <input type="password" name="password" />
-        <br />
-        <button type="submit">Login</button>
-      </form>
-      <div>
-        <Link to="/register">
-          <button>Register</button>
-        </Link>
-      </div>
-    </>
+    <form onSubmit={submitAction}>
+      <input type="email" name="email" />
+      <br />
+      <input type="password" name="password" />
+      <br />
+      <button type="submit">Register</button>
+    </form>
   );
 }
 
-export default Login;
+export default Register;

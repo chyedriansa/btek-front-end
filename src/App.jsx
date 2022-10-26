@@ -5,7 +5,11 @@ import {
 import RequireAuth from './components/RequireAuth';
 import Home from './pages/Home';
 import Login from './pages/Login';
+// eslint-disable-next-line import/no-unresolved
 import Profile from './pages/Profile';
+// eslint-disable-next-line import/no-unresolved
+import Register from './pages/Register';
+
 // import CharacterDetail from './pages/CharacterDetail';
 // import CharacterList from './pages/CharacterList';
 
@@ -21,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/profile',
     element: <RequireAuth><Profile /></RequireAuth>,
+  },
+  {
+    path: '/register',
+    element: <Register />,
   },
 ]);
 
