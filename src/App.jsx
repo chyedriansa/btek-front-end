@@ -7,11 +7,10 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 // eslint-disable-next-line import/no-unresolved
 import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
 // eslint-disable-next-line import/no-unresolved
 import Register from './pages/Register';
-
-// import CharacterDetail from './pages/CharacterDetail';
-// import CharacterList from './pages/CharacterList';
+import ForgotPassword from './pages/ForgotPassword';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +29,19 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />,
   },
+  {
+    path: '/forgot-password',
+    element: <ForgotPassword />,
+  },
+  {
+    path: '/reset-password',
+    element: <resetPassword />,
+  },
+  {
+    path: '/profile/edit',
+    element: <RequireAuth><EditProfile /></RequireAuth>,
+  },
+
 ]);
 
 function App() {

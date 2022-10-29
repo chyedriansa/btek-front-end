@@ -10,8 +10,12 @@ function Home() {
   return (
     <div>
       Home &middot;
-      <Link to="/characters">Go to Character List</Link>
-      <Link to="/profile">Profile</Link>
+      {/* <Link to="/characters">Go to Character List</Link>
+      <br /> */}
+      <Link to="/profile"><button type="button">Profile</button></Link>
+      <br />
+      <Link to="/edit-profile"><button type="button">Edit Profile</button></Link>
+      <br />
       <button type="button" onClick={logout}>Logout</button>
     </div>
   );

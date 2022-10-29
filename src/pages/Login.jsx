@@ -1,41 +1,65 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Formik, Form, Field } from 'formik';
+import YupPassword from 'yup-password';
+import * as Yup from 'yup';
 import http from '../helpers/http';
+
+YupPassword(Yup);
 
 function Login() {
   const navigate = useNavigate();
-  const submitAction = async (e) => {
+
+  const basicAuthSchema = Yup.object().shape({
+    email: Yup.string().email('Email is not valid').required(),
+    password: Yup.string().password().required(),
+  });
+
+  const submitAction = async (values) => {
     try {
-      e.preventDefault();
-      const form = {
-        email: e.target.email.value,
-        password: e.target.password.value,
-      };
-      const encoded = new URLSearchParams(form);
-      const { data } = await http().post('/auth/login', encoded.toString());
+      const form = new URLSearchParams(values);
+      const { data } = await http().post('/auth/login', form.toString());
       window.localStorage.setItem('token', data.results.token);
       navigate('/');
     } catch (err) {
-      // eslint-disable-next-line no-alert
       window.alert(err.response.data.message);
     }
   };
   return (
     <>
-      <form onSubmit={submitAction}>
-        Email
-        <input type="email" name="email" />
-        <br />
-        Password
-        <input type="password" name="password" />
-        <br />
-        <button type="submit">Login</button>
-      </form>
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        validationSchema={basicAuthSchema}
+        onSubmit={submitAction}
+      >
+        {({ errors, touched }) => (
+          <Form>
+            email
+            <Field type="email" name="email" />
+            <br />
+            {errors.email && touched.email ? (
+              <div>{errors.email}</div>
+            ) : null}
+            <br />
+            password
+            <Field type="password" name="password" />
+            <br />
+            {errors.password && touched.password ? (
+              <div>{errors.password}</div>
+            ) : null}
+            <br />
+            <button type="submit">Login</button>
+          </Form>
+        )}
+      </Formik>
       <div>
-        <Link to="/register">
-          <button type="submit">Register</button>
-        </Link>
-        <Link className="nav-for" to="/forgot-password">forgot password</Link>
+        <Link to="/forgot-password"><button type="button">Forgot Password</button></Link>
+      </div>
+      <div>
+        <Link to="/register"><button type="button">Register</button></Link>
       </div>
     </>
   );
