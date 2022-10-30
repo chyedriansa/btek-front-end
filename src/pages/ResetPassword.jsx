@@ -23,6 +23,7 @@ function ResetPassword() {
       await http().post('/auth/reset-password', form.toString());
       navigate('/login');
     } catch (err) {
+      // eslint-disable-next-line no-alert
       window.alert(err.response.data.message);
     }
   };

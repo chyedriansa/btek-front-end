@@ -22,6 +22,7 @@ function Login() {
       window.localStorage.setItem('token', data.results.token);
       navigate('/');
     } catch (err) {
+      // eslint-disable-next-line no-alert
       window.alert(err.response.data.message);
     }
   };
@@ -37,14 +38,14 @@ function Login() {
       >
         {({ errors, touched }) => (
           <Form>
-            email
+            email:
             <Field type="email" name="email" />
             <br />
             {errors.email && touched.email ? (
               <div>{errors.email}</div>
             ) : null}
             <br />
-            password
+            password:
             <Field type="password" name="password" />
             <br />
             {errors.password && touched.password ? (
