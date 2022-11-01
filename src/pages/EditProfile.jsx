@@ -56,6 +56,7 @@ function EditProfile() {
       >
         {({ errors, touched }) => (
           <Form>
+            Full Name:
             <Field type="text" name="fullName" />
             <br />
             {errors.fullName && touched.fullName ? (
@@ -68,6 +69,7 @@ function EditProfile() {
               <div>{errors.picture}</div>
             ) : null}
             <br />
+            Birth Date:
             <Field type="text" name="birthDate" />
             <br />
             {errors.birthDate && touched.birthDate ? (

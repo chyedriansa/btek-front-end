@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import http from '../helpers/http';
 
 function Profile() {
@@ -6,6 +7,7 @@ function Profile() {
   const getProfile = async () => {
     const token = window.localStorage.getItem('token');
     const { data } = await http(token).get('/profile');
+    // console.log(data);
     setUserProfile(data.result);
   };
 
@@ -30,6 +32,7 @@ function Profile() {
         {' '}
         {userProfile?.picture}
       </div>
+      <Link to="/"><button type="button">Back</button></Link>
     </div>
   );
 }

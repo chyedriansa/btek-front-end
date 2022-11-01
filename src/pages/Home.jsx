@@ -14,7 +14,7 @@ function Home() {
       <br /> */}
       <Link to="/profile"><button type="button">Profile</button></Link>
       <br />
-      <Link to="/edit-profile"><button type="button">Edit Profile</button></Link>
+      <Link to="/profile/edit"><button type="button">Edit Profile</button></Link>
       <br />
       <button type="button" onClick={logout}>Logout</button>
     </div>

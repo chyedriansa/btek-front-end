@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  createBrowserRouter, RouterProvider,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RequireAuth from './components/RequireAuth';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -11,6 +9,8 @@ import EditProfile from './pages/EditProfile';
 // eslint-disable-next-line import/no-unresolved
 import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
+// eslint-disable-next-line no-unused-vars
+import ResetPassword from './pages/ResetPassword';
 
 const router = createBrowserRouter([
   {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/reset-password',
-    element: <resetPassword />,
+    element: <ResetPassword />,
   },
   {
     path: '/profile/edit',

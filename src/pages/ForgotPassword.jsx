@@ -17,10 +17,22 @@ function ForgotPassword() {
       await http().post('/auth/forgot-password', form.toString());
       navigate('/reset-password');
     } catch (err) {
-      // eslint-disable-next-line no-alert
       window.alert(err.response.data.message);
     }
   };
+
+  // const forgotAction = async (e) => {
+  //   try {
+  //     e.preventDefault();
+  //     const email = e.target.email.value;
+  //     await http().post('/auth/forgot-password', email);
+  //     navigate('/reset-password');
+  //   } catch (err) {
+  //     // eslint-disable-next-line no-alert
+  //     window.alert(err.response.data.message);
+  //   }
+  // };
+
   return (
     <Formik
       initialValues={{
@@ -31,6 +43,7 @@ function ForgotPassword() {
     >
       {({ errors, touched }) => (
         <Form>
+          Email :
           <Field type="text" name="email" />
           <br />
           {errors.email && touched.email ? (
@@ -43,5 +56,14 @@ function ForgotPassword() {
     </Formik>
   );
 }
-
 export default ForgotPassword;
+
+    // <form onSubmit={forgotAction}>
+    //   Input email address, to send the confirmation code
+    //   <br />
+    //   <input type="email" name="email" />
+    //   <br />
+    //   <button type="submit">Submit</button>
+    // </form>
+
+
