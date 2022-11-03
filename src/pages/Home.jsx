@@ -17,6 +17,7 @@ function Home() {
       <Link to="/profile/edit"><button type="button">Edit Profile</button></Link>
       <br />
       <button type="button" onClick={logout}>Logout</button>
+
     </div>
   );
 }

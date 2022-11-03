@@ -32,6 +32,7 @@ function Profile() {
         {' '}
         {userProfile?.picture}
       </div>
+      <br />
       <Link to="/"><button type="button">Back</button></Link>
     </div>
   );

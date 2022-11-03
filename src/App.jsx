@@ -1,16 +1,17 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter, RouterProvider,
+} from 'react-router-dom';
+import { Provider } from 'react-redux';
 import RequireAuth from './components/RequireAuth';
 import Home from './pages/Home';
 import Login from './pages/Login';
-// eslint-disable-next-line import/no-unresolved
+import Register from './pages/Register';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
-// eslint-disable-next-line import/no-unresolved
-import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
-// eslint-disable-next-line no-unused-vars
 import ResetPassword from './pages/ResetPassword';
+import { store } from './redux/store';
 
 const router = createBrowserRouter([
   {
@@ -22,12 +23,16 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
+    path: '/register',
+    element: <Register />,
+  },
+  {
     path: '/profile',
     element: <RequireAuth><Profile /></RequireAuth>,
   },
   {
-    path: '/register',
-    element: <Register />,
+    path: '/profile/edit',
+    element: <RequireAuth><EditProfile /></RequireAuth>,
   },
   {
     path: '/forgot-password',
@@ -37,16 +42,13 @@ const router = createBrowserRouter([
     path: '/reset-password',
     element: <ResetPassword />,
   },
-  {
-    path: '/profile/edit',
-    element: <RequireAuth><EditProfile /></RequireAuth>,
-  },
-
 ]);
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   );
 }
 

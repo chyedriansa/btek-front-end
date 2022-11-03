@@ -17,6 +17,7 @@ function ForgotPassword() {
       await http().post('/auth/forgot-password', form.toString());
       navigate('/reset-password');
     } catch (err) {
+      // eslint-disable-next-line no-alert
       window.alert(err.response.data.message);
     }
   };
@@ -57,13 +58,3 @@ function ForgotPassword() {
   );
 }
 export default ForgotPassword;
-
-    // <form onSubmit={forgotAction}>
-    //   Input email address, to send the confirmation code
-    //   <br />
-    //   <input type="email" name="email" />
-    //   <br />
-    //   <button type="submit">Submit</button>
-    // </form>
-
-
