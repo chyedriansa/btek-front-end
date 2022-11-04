@@ -37,27 +37,27 @@ function Login() {
         onSubmit={submitAction}
       >
         {({ errors, touched }) => (
-          <Form>
+          <Form className="px-1 py-2">
             email:
-            <Field type="email" name="email" />
+            <Field className="px-1 py-2" placeholder="  enter you email" type="email" name="email" />
             <br />
             {errors.email && touched.email ? (
               <div>{errors.email}</div>
             ) : null}
             <br />
             password:
-            <Field type="password" name="password" />
+            <Field className="px-1 py-2" placeholder="  enter you password" type="password" name="password" />
             <br />
             {errors.password && touched.password ? (
               <div>{errors.password}</div>
             ) : null}
             <br />
-            <button type="submit">Login</button>
+            <button className="rounded bg-green-600 " type="submit"> Login </button>
           </Form>
         )}
       </Formik>
       <div>
-        <Link to="/forgot-password"><button type="button">Forgot Password</button></Link>
+        <Link to="/forgot-password"><button className='peer-hover:' type="button">Forgot Password</button></Link>
       </div>
       <div>
         <Link to="/register"><button type="button">Register</button></Link>
