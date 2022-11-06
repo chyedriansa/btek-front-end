@@ -38,37 +38,46 @@ function ResetPassword() {
       onSubmit={submitAction}
     >
       {({ errors, touched }) => (
-        <Form>
-          Secret Code :
-          <Field className="outline-double" type="text" name="code" />
-          <br />
-          {errors.code && touched.code ? (
-            <div>{errors.code}</div>
-          ) : null}
-          <br />
-          Email :
-          <Field className="outline-double" type="text" name="email" />
-          <br />
-          {errors.email && touched.email ? (
-            <div>{errors.email}</div>
-          ) : null}
-          <br />
-          New Password :
-          <Field className="outline-double" type="password" name="newPassword" />
-          <br />
-          {errors.newPassword && touched.newPassword ? (
-            <div>{errors.newPassword}</div>
-          ) : null}
-          <br />
-          Confirm Password :
-          <Field className="outline-double" type="password" name="confirmPassword" />
-          <br />
-          {errors.confirmPassword && touched.confirmPassword ? (
-            <div>{errors.confirmPassword}</div>
-          ) : null}
-          <br />
-          <Button type="submit">Send</Button>
-        </Form>
+        <div className="grid grid-cols-6 gap-4 ">
+          <div className=" h-screen flex justify-center items-center col-start-2 col-span-4 card w-96 bg-base-100 shadow-xl outline-double">
+            <figure><img className="rounded-3xl" src="./src/assets/pic/react.png" alt="Shoes" /></figure>
+            <div className="card-body bg-slate-800">
+              <div className="card-actions justify-end">
+                <Form>
+                  Secret Code :
+                  <Field className="px-1 py-1 input input-bordered w-full max-w-xs" type="text" name="code" />
+                  <br />
+                  {errors.code && touched.code ? (
+                    <div>{errors.code}</div>
+                  ) : null}
+                  <br />
+                  Email :
+                  <Field className="px-1 py-1 input input-bordered w-full max-w-xs" type="text" name="email" />
+                  <br />
+                  {errors.email && touched.email ? (
+                    <div>{errors.email}</div>
+                  ) : null}
+                  <br />
+                  New Password :
+                  <Field className="px-1 py-1 input input-bordered w-full max-w-xs" type="password" name="newPassword" />
+                  <br />
+                  {errors.newPassword && touched.newPassword ? (
+                    <div>{errors.newPassword}</div>
+                  ) : null}
+                  <br />
+                  Confirm Password :
+                  <Field className="px-1 py-1 input input-bordered w-full max-w-xs" type="password" name="confirmPassword" />
+                  <br />
+                  {errors.confirmPassword && touched.confirmPassword ? (
+                    <div>{errors.confirmPassword}</div>
+                  ) : null}
+                  <br />
+                  <Button type="submit">Send</Button>
+                </Form>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </Formik>
   );

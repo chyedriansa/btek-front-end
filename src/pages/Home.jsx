@@ -11,8 +11,6 @@ function Home() {
   return (
     <div>
       Your main Home &middot;
-      {/* <Link to="/characters">Go to Character List</Link>
-      <br /> */}
       <Link to="/profile"><Button type="button">Profile</Button></Link>
       <br />
       <Link to="/profile/edit"><Button type="button">Edit Profile</Button></Link>

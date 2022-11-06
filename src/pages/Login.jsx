@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
@@ -37,33 +38,42 @@ function Login() {
       onSubmit={submitAction}
     >
       {({ errors, touched }) => (
-        <div className='className="card w-96 bg-base-100 shadow-xl"'>
-          <div className="card-body">
-            <div className="card-actions justify-end">
-              <h className="card-tittle inline-block rounded-md font-sans text-3xl bg-slate-900 text-white">Please login!</h>
-              <br />
-              <br />
-              <Form className="px-1 py-1 border-neutral-900">
-                email:
-                <Field className="px-1 py-1 border-gray-1000 outline-double" placeholder="  enter you email" type="email" name="email" />
+        <div className="grid grid-cols-6 gap-4">
+          <div className="center h-screen flex justify-center items-center col-start-2 col-span-4 card w-96 bg-base-100 shadow-xl outline-double">
+            <figure><img className="rounded-3xl" src="./src/assets/pic/react.png" alt="Shoes" /></figure>
+            <div className=" card-body bg-slate-800">
+              <h className="text-center text-white font-semibold">B-TEK LABS</h>
+              <div className="card-actions justify-end">
                 <br />
-                {errors.email && touched.email ? (
-                  <div>{errors.email}</div>
-                ) : null}
                 <br />
-                password:
-                <Field className="px-1 py-1 border-neutral-900 outline-double" placeholder="  enter you password" type="password" name="password" />
-                <br />
-                {errors.password && touched.password ? (
-                  <div>{errors.password}</div>
-                ) : null}
-                <br />
-                <div>
-                  <Button className="rounded bg-green-1000 " type="submit"> Login </Button>
-                  <Link to="/forgot-password"><Button type="button">Forgot Password</Button></Link>
-                  <Link to="/register"><Button type="button">Register</Button></Link>
-                </div>
-              </Form>
+                <Form className="px-1 py-1 border-neutral-900 jus">
+                  email:
+                  <Field className="px-1 py-1 input input-bordered w-full max-w-xs" placeholder="  enter you email" type="email" name="email" />
+                  <br />
+                  {errors.email && touched.email ? (
+                    <div>{errors.email}</div>
+                  ) : null}
+                  <br />
+                  password:
+                  <Field className="px-1 py-1 input input-bordered w-full max-w-xs" placeholder="  enter you password" type="password" name="password" />
+                  <br />
+                  {errors.password && touched.password ? (
+                    <div>{errors.password}</div>
+                  ) : null}
+                  <br />
+                  <div>
+                    <Button className="rounded bg-green-1000 " type="submit"> Login </Button>
+                    <Link to="/forgot-password"><Button type="button">Forgot Password</Button></Link>
+                    <Link to="/register"><Button type="button">Register</Button></Link>
+                  </div>
+                  <p>
+                    {' '}
+                    Don't have an account?, you must
+                    <Link className="link text-sm hover:text-primary" to="/register"> Register</Link>
+                    <p>first</p>
+                  </p>
+                </Form>
+              </div>
             </div>
           </div>
         </div>

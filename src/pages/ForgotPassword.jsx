@@ -33,7 +33,7 @@ function ForgotPassword() {
       {({ errors, touched }) => (
         <Form>
           Email :
-          <Field className="outline-double" type="text" name="email" />
+          <Field className="px-1 py-1 input input-bordered w-full max-w-xs" type="text" name="email" />
           <br />
           {errors.email && touched.email ? (
             <div>{errors.email}</div>
