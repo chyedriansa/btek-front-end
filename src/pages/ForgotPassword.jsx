@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import http from '../helpers/http';
+import Button from '../components/Button';
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -21,19 +22,6 @@ function ForgotPassword() {
       window.alert(err.response.data.message);
     }
   };
-
-  // const forgotAction = async (e) => {
-  //   try {
-  //     e.preventDefault();
-  //     const email = e.target.email.value;
-  //     await http().post('/auth/forgot-password', email);
-  //     navigate('/reset-password');
-  //   } catch (err) {
-  //     // eslint-disable-next-line no-alert
-  //     window.alert(err.response.data.message);
-  //   }
-  // };
-
   return (
     <Formik
       initialValues={{
@@ -45,13 +33,13 @@ function ForgotPassword() {
       {({ errors, touched }) => (
         <Form>
           Email :
-          <Field type="text" name="email" />
+          <Field className="outline-double" type="text" name="email" />
           <br />
           {errors.email && touched.email ? (
             <div>{errors.email}</div>
           ) : null}
           <br />
-          <button type="submit">Send</button>
+          <Button type="submit">Send</Button>
         </Form>
       )}
     </Formik>

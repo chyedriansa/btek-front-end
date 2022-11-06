@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from '../components/Button';
 import http from '../helpers/http';
 
 function Register() {
@@ -23,12 +24,14 @@ function Register() {
   return (
     <form onSubmit={submitAction}>
       Email
-      <input type="email" name="email" />
+      <input className="outline-double" type="email" name="email" />
+      <br />
       <br />
       Password
-      <input type="password" name="password" />
+      <input className="outline-double" type="password" name="password" />
       <br />
-      <button type="submit">Register</button>
+      <br />
+      <Button className="btn btn-primary" type="submit">Register</Button>
     </form>
   );
 }

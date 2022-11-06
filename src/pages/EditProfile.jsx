@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import YupPassword from 'yup-password';
 import * as Yup from 'yup';
 import * as profileAction from '../redux/asyncActions/profile';
+import Button from '../components/Button';
 
 YupPassword(Yup);
 
@@ -73,7 +74,7 @@ function EditProfile() {
             ) : null}
             <br />
             <br />
-            <button type="submit">save</button>
+            <Button type="submit">save</Button>
           </Form>
         )}
       </Formik>

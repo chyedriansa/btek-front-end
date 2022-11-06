@@ -6,5 +6,11 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    // eslint-disable-next-line global-require
+    require('daisyui'),
+  ],
+  daisyui:{
+    themes:['forest']
+  }
 };

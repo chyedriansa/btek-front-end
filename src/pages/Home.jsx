@@ -10,16 +10,14 @@ function Home() {
   };
   return (
     <div>
-      Home &middot;
+      Your main Home &middot;
       {/* <Link to="/characters">Go to Character List</Link>
       <br /> */}
-      <Link to="/profile"><button type="button">Profile</button></Link>
+      <Link to="/profile"><Button type="button">Profile</Button></Link>
       <br />
-      <Link to="/profile/edit"><button type="button">Edit Profile</button></Link>
+      <Link to="/profile/edit"><Button type="button">Edit Profile</Button></Link>
       <br />
-      <button type="button" onClick={logout}>Logout</button>
-      <Button>OK</Button>
-
+      <button className="block bg-sky-900 hover:bg-sky-500 text-white rounded-2xl btn btn-primary" type="submit" onClick={logout}>Logout</button>
     </div>
   );
 }

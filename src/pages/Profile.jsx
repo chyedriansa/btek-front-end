@@ -7,7 +7,6 @@ function Profile() {
   const getProfile = async () => {
     const token = window.localStorage.getItem('token');
     const { data } = await http(token).get('/profile');
-    // console.log(data);
     setUserProfile(data.result);
   };
 
@@ -33,7 +32,7 @@ function Profile() {
         {userProfile?.picture}
       </div>
       <br />
-      <Link to="/"><button type="button">Back</button></Link>
+      <Link to="/"><button className="btn btn-primary" type="button">Back</button></Link>
     </div>
   );
 }
