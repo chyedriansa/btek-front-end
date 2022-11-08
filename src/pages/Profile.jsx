@@ -19,7 +19,7 @@ function Profile() {
     <div className="grid grid-cols-6 gap-4 ">
       <div className=" h-screen flex justify-center items-center col-start-2 col-span-4 card w-96 bg-base-100 shadow-xl outline-double">
         <figure><img className="rounded-3xl" src="./src/assets/pic/react.png" alt="Shoes" /></figure>
-        <div className="card-body bg-slate-800">
+        <div className="rounded-lg card-body bg-slate-800">
           <div>
             Full Name:
             {' '}

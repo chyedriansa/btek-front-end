@@ -40,10 +40,10 @@ function Login() {
       {({ errors, touched }) => (
         <div className="grid grid-cols-6 gap-4">
           <div className="center h-screen flex justify-center items-center col-start-2 col-span-4 card w-96 bg-base-100 shadow-xl outline-double">
-            <figure><img className="rounded-3xl" src="./src/assets/pic/react.png" alt="Shoes" /></figure>
-            <div className=" card-body bg-slate-800">
+            <figure><img className="rounded-3xl" src="https://o.remove.bg/downloads/dd281772-08a2-4916-ba8c-260e1f31bc70/logo-reactjs-removebg-preview.png" alt="Shoes" /></figure>
+            <div className="text-center card-body bg-slate-800">
               <h className="text-center text-white font-semibold">B-TEK LABS</h>
-              <div className="card-actions justify-end">
+              <div className="rounded-2xl card-actions justify-end">
                 <br />
                 <br />
                 <Form className="px-1 py-1 border-neutral-900 jus">
@@ -69,7 +69,7 @@ function Login() {
                   <p>
                     {' '}
                     Don't have an account?, you must
-                    <Link className="link text-sm hover:text-primary" to="/register"> Register</Link>
+                    <Link className="textarea-warning link text-sm hover:text-primary" to="/register"> Register</Link>
                     <p>first</p>
                   </p>
                 </Form>
