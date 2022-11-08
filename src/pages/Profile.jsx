@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
@@ -33,9 +34,11 @@ function Profile() {
           <div>
             Picture:
             {' '}
-            {userProfile?.picture}
+            {/* {userProfile?.picture} */}
+            <img src="./src/assets/uploads/" />
           </div>
           <br />
+          {/* <div id="pic" /> */}
           <Link to="/"><Button className="btn btn-primary" type="button">Back</Button></Link>
         </div>
       </div>
