@@ -40,7 +40,7 @@ function Login() {
       {({ errors, touched }) => (
         <div className="grid grid-cols-6 gap-4">
           <div className="center h-screen flex justify-center items-center col-start-2 col-span-4 card w-96 bg-base-100 shadow-xl outline-double">
-            <figure><img className="rounded-3xl" src="https://o.remove.bg/downloads/babcac8c-e617-40ac-a381-9e8221d2fc87/logo-reactjs-removebg-preview.png" alt="Shoes" /></figure>
+            <figure><img className="rounded-3xl" src="https://res.cloudinary.com/dvtniqszt/image/upload/v1667914841/assets/logo-reactjs-removebg-preview_rzzlu6.png" alt="Shoes" /></figure>
             <div className="text-center card-body bg-slate-800">
               <h className="text-center text-white font-semibold">B-TEK LABS</h>
               <div className="rounded-2xl card-actions justify-end">
