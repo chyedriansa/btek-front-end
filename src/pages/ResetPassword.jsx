@@ -40,7 +40,7 @@ function ResetPassword() {
       {({ errors, touched }) => (
         <div className="grid grid-cols-6 gap-4 ">
           <div className=" h-screen flex justify-center items-center col-start-2 col-span-4 card w-96 bg-base-100 shadow-xl outline-double">
-            <figure><img className="rounded-3xl" src="./src/assets/pic/react.png" alt="Shoes" /></figure>
+            <figure><img className="rounded-3xl" src="https://res.cloudinary.com/dvtniqszt/image/upload/v1667914841/assets/logo-reactjs-removebg-preview_rzzlu6.png" alt="Shoes" /></figure>
             <div className="card-body bg-slate-800">
               <div className="card-actions justify-end">
                 <Form>

@@ -19,7 +19,7 @@ function Profile() {
   return (
     <div className="grid grid-cols-6 gap-4 ">
       <div className=" h-screen flex justify-center items-center col-start-2 col-span-4 card w-96 bg-base-100 shadow-xl outline-double">
-        <figure><img className="rounded-3xl" src="https://o.remove.bg/downloads/dd281772-08a2-4916-ba8c-260e1f31bc70/logo-reactjs-removebg-preview.png" alt="Shoes" /></figure>
+        <figure><img className="rounded-3xl" src="https://res.cloudinary.com/dvtniqszt/image/upload/v1667914841/assets/logo-reactjs-removebg-preview_rzzlu6.png" alt="Shoes" /></figure>
         <div className="rounded-lg card-body bg-slate-800">
           <div>
             Full Name:
