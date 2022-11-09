@@ -42,7 +42,7 @@ function EditProfile() {
   }, []);
   return (
     <>
-      {userProfile?.picture && <img style={{ width: '240px', height: '100%' }} src={`http://localhost:8888/assets/uploads/${userProfile?.picture}`} alt={userProfile?.picture} />}
+      {userProfile?.picture && <img style={{ width: '240px', height: '100%' }} src={`${userProfile?.picture}`} alt={userProfile?.picture} />}
       <Formik
         initialValues={{
           fullName: '',
