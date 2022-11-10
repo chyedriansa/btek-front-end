@@ -27,9 +27,9 @@ function Profile() {
               Name :
               {' '}
               {userProfile?.fullName ?? '(Not edit yet)'}
+              <br />
+              <br />
               .Birth Date:
-              <br />
-              <br />
               {' '}
               {userProfile?.birthDate ?? '(Not edit yet)'}
             </h2>
