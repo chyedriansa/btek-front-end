@@ -28,19 +28,14 @@ function Profile() {
               {' '}
               {userProfile?.fullName ?? '(Not edit yet)'}
               .Birth Date:
+              <br />
+              <br />
               {' '}
               {userProfile?.birthDate ?? '(Not edit yet)'}
             </h2>
-            <Button type="button" className="btn btn-primary mx-1 btn-outline">
-              <Link to="/">Back</Link>
-            </Button>
-            <button type="button" className="btn btn-primary mx-1">
-              <Link to="/profile/edit">Edit Profile</Link>
-            </button>
           </div>
-          <br />
-          {/* <div id="pic" /> */}
           <Link to="/"><Button className="btn btn-primary" type="button" onClick={() => dispatch(profileReducerAction.resetProfile())}>Back</Button></Link>
+          <br />
         </div>
       </div>
     </div>
