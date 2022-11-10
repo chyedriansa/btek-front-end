@@ -48,8 +48,8 @@ function Login() {
       onSubmit={submitAction}
     >
       {({ errors, touched }) => (
-        <div className="grid grid-cols-6 gap-4">
-          <div className="center h-screen flex justify-center items-center col-start-2 col-span-4 card w-96 bg-base-100 shadow-xl outline-double">
+        <div className="flex flex-col items-center justify-items-center h-full">
+          <div className="center flex h-screen justify-center items-center col-start-2 col-span-4 card w-96 bg-base-100 shadow-xl outline-double">
             <figure><img className="rounded-3xl" src="https://res.cloudinary.com/dvtniqszt/image/upload/v1667914841/assets/logo-reactjs-removebg-preview_rzzlu6.png" alt="Shoes" /></figure>
             <div className="text-center card-body bg-slate-800">
               <h className="text-center text-white font-semibold">B-TEK LABS</h>

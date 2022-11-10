@@ -22,21 +22,21 @@ function Profile() {
       <div className=" h-screen flex justify-center items-center col-start-2 col-span-4 card w-96 bg-base-100 shadow-xl outline-double">
         <figure><img className="rounded-3xl" src="https://res.cloudinary.com/dvtniqszt/image/upload/v1667914841/assets/logo-reactjs-removebg-preview_rzzlu6.png" alt="Shoes" /></figure>
         <div className="rounded-lg card-body bg-slate-800">
-          <div>
+          <div className="flex flex-col gap-4">
+            <div>
+              {userProfile?.picture && <img className="rounded-md w-full h-24 object-cover" src={`${userProfile?.picture}`} alt={userProfile?.picture} />}
+
+            </div>
             <h2 className="py-6">
               Name :
               {' '}
-              {userProfile?.fullName ?? '(Not edit yet)'}
+              {userProfile?.fullName ?? '(Empty)'}
               <br />
               <br />
               Birth Date:
               {' '}
-              {userProfile?.birthDate ?? '(Not edit yet)'}
+              {userProfile?.birthDate ?? '(Empty)'}
             </h2>
-            <div className="flex justify-center items-center">
-              {userProfile?.picture && <img className="mask mask-circle" style={{ width: '50%', height: '80%' }} src={`${userProfile?.picture}`} alt={userProfile?.picture} />}
-
-            </div>
           </div>
           <Link to="/"><Button className="btn btn-primary" type="button" onClick={() => dispatch(profileReducerAction.resetProfile())}>Back</Button></Link>
           <br />
