@@ -29,11 +29,14 @@ function Profile() {
               {userProfile?.fullName ?? '(Not edit yet)'}
               <br />
               <br />
-              .Birth Date:
+              Birth Date:
               {' '}
               {userProfile?.birthDate ?? '(Not edit yet)'}
-              {userProfile?.picture && <img className="mask mask-circle" style={{ width: '50%', height: '80%' }} src={`${userProfile?.picture}`} alt={userProfile?.picture} />}
             </h2>
+            <div className="flex justify-center items-center">
+              {userProfile?.picture && <img className="mask mask-circle" style={{ width: '50%', height: '80%' }} src={`${userProfile?.picture}`} alt={userProfile?.picture} />}
+
+            </div>
           </div>
           <Link to="/"><Button className="btn btn-primary" type="button" onClick={() => dispatch(profileReducerAction.resetProfile())}>Back</Button></Link>
           <br />
