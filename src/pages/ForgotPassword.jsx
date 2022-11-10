@@ -1,9 +1,14 @@
+/* eslint-disable no-alert */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
+// eslint-disable-next-line no-unused-vars
 import http from '../helpers/http';
 import Button from '../components/Button';
+import * as authAction from '../redux/asyncActions/auth';
+import * as authReset from '../redux/reducers/auth';
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -12,16 +17,24 @@ function ForgotPassword() {
     email: Yup.string().email('Email is not valid').required(),
   });
 
+  const dispatch = useDispatch();
+  const store = useSelector((state) => state.auth);
+
   const submitAction = async (values) => {
     try {
-      const form = new URLSearchParams(values);
-      await http().post('/auth/forgot-password', form.toString());
-      navigate('/reset-password');
+      dispatch(authAction.forgotPassword(values));
     } catch (err) {
-      // eslint-disable-next-line no-alert
       window.alert(err.response.data.message);
     }
   };
+
+  React.useEffect(() => {
+    if (store.user.email) {
+      dispatch(authReset.handleReset());
+      navigate('/reset-password');
+    }
+  }, [store]);
+
   return (
     <Formik
       initialValues={{

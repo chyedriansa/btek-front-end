@@ -1,11 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
+import { useSelector, useDispatch } from 'react-redux';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import YupPassword from 'yup-password';
 import * as Yup from 'yup';
+// eslint-disable-next-line no-unused-vars
 import http from '../helpers/http';
 import Button from '../components/Button';
+import * as authAction from '../redux/asyncActions/auth';
 
 YupPassword(Yup);
 
@@ -17,17 +20,24 @@ function Login() {
     password: Yup.string().password().required(),
   });
 
+  const dispatch = useDispatch();
+  const store = useSelector((state) => state.auth);
+
   const submitAction = async (values) => {
     try {
-      const form = new URLSearchParams(values);
-      const { data } = await http().post('/auth/login', form.toString());
-      window.localStorage.setItem('token', data.results.token);
-      navigate('/');
+      dispatch(authAction.login(values));
     } catch (err) {
       // eslint-disable-next-line no-alert
       window.alert(err.response.data.message);
     }
   };
+
+  React.useEffect(() => {
+    if (store.user.token) {
+      window.localStorage.setItem('token', store.user.token);
+      navigate('/');
+    }
+  }, [store]);
   return (
     <Formik
       initialValues={{

@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import YupPassword from 'yup-password';
 import * as Yup from 'yup';
-import * as profileAction from '../redux/asyncActions/profile';
 import Button from '../components/Button';
+import * as profileAction from '../redux/asyncActions/profile';
 
 YupPassword(Yup);
 

@@ -1,13 +1,23 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import * as authAction from '../redux/reducers/auth';
 import Button from '../components/Button';
 
 function Home() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const logout = () => {
     window.localStorage.removeItem('token');
+    dispatch(authAction.handleReset());
     navigate('/login');
   };
+  const profile = () => {
+    navigate('/profile');
+  };
+
   return (
     <div>
       Your main Home &middot;

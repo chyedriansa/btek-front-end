@@ -1,19 +1,20 @@
-/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/self-closing-comp */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../components/Button';
-import http from '../helpers/http';
+import * as profileAction from '../redux/asyncActions/profile';
+import * as profileReducerAction from '../redux/reducers/profile';
 
 function Profile() {
-  const [userProfile, setUserProfile] = React.useState({});
-  const getProfile = async () => {
-    const token = window.localStorage.getItem('token');
-    const { data } = await http(token).get('/profile');
-    setUserProfile(data.result);
-  };
+  const dispatch = useDispatch();
+  const userProfile = useSelector((state) => state.profile.user);
 
   React.useEffect(() => {
-    getProfile();
+    const token = window.localStorage.getItem('token');
+    if (!userProfile?.fullName) {
+      dispatch(profileAction.getDataUser({ token }));
+    }
   }, []);
 
   return (
@@ -22,24 +23,24 @@ function Profile() {
         <figure><img className="rounded-3xl" src="https://res.cloudinary.com/dvtniqszt/image/upload/v1667914841/assets/logo-reactjs-removebg-preview_rzzlu6.png" alt="Shoes" /></figure>
         <div className="rounded-lg card-body bg-slate-800">
           <div>
-            Full Name:
-            {' '}
-            {userProfile?.fullName}
-          </div>
-          <div>
-            Birthdate:
-            {' '}
-            {userProfile?.birthDate}
-          </div>
-          <div>
-            Picture:
-            {' '}
-            {/* {userProfile?.picture} */}
-            <img src="./src/assets/uploads/" />
+            <h2 className="py-6">
+              Name :
+              {' '}
+              {userProfile?.fullName ?? '(Not edit yet)'}
+              .Birth Date:
+              {' '}
+              {userProfile?.birthDate ?? '(Not edit yet)'}
+            </h2>
+            <Button type="button" className="btn btn-primary mx-1 btn-outline">
+              <Link to="/">Back</Link>
+            </Button>
+            <button type="button" className="btn btn-primary mx-1">
+              <Link to="/profile/edit">Edit Profile</Link>
+            </button>
           </div>
           <br />
           {/* <div id="pic" /> */}
-          <Link to="/"><Button className="btn btn-primary" type="button">Back</Button></Link>
+          <Link to="/"><Button className="btn btn-primary" type="button" onClick={() => dispatch(profileReducerAction.resetProfile())}>Back</Button></Link>
         </div>
       </div>
     </div>
